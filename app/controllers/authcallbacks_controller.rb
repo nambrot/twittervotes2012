@@ -14,7 +14,7 @@ class AuthcallbacksController < ApplicationController
       end
 
       session[:twitter_user_id] = user.id
-      redirect_to :root
+      redirect_to '/vote'
     end
     # logger.ap o
     # user = User.authenticate_tpsubidentity(o['uid'], o['provider'])

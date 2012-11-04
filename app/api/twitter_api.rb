@@ -108,7 +108,7 @@ class TwitterAPI
             'uid' => friend['id'],
             'context_name' => 'twitter',
             'credentials' => {},
-            'name' => "@" + friend['screen_name'],
+            'name' => friend['screen_name'],
             'url' => "http://www.twitter.com/#{friend['screen_name']}",
             'image' => self.class.process_image( friend['profile_image_url_https'] ) ,
             'objecttype' => 'Twitter Profile',

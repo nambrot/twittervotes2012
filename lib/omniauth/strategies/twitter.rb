@@ -25,8 +25,6 @@ module OmniAuth
       end
 
       extra do
-          ap raw_info
-          ap TwitterAPI.process_image(raw_info['profile_image_url_https'])
         { 
           :raw_info => raw_info,
           :credport => {

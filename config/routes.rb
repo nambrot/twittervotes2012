@@ -1,9 +1,11 @@
 Election::Application.routes.draw do
   match '/auth/:provider/callback' => 'authcallbacks#create'
   match '/auth/failure' => 'authcallbacks#fail'
-  root :to => 'home#index'
+  root :to => 'home#home'
   match 'logout' => 'home#logout'
   post '/vote' => 'home#vote'
+  get '/vote' => 'home#dashboard'
+
   resources :twitter_users
   # The priority is based upon order of creation:
   # first created -> highest priority.
