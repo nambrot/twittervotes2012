@@ -1,0 +1,115 @@
+
+<% if current_user %>
+  <header>
+    <h2>Welcome back <%= current_user.at_name %> (<a href="/logout">Logout</a>)</h2>
+  </header>
+
+  <article id='votingTable' class="row">
+    <header>
+      <h2>Your Vote:</h2>
+    </header>
+    <%= form_tag('/vote', :class => 'nice row hidden') do %>
+    <section class="six columns mobile-two obama">
+      <%= radio_button_tag 'vote', '2', (current_user.vote == 2) %>
+      <%= label_tag 'vote_2', 'Barack Obama' do %>
+      <header>
+        <img src="<%= asset_path 'obama.jpg' %>" alt="">
+        <h2>Team Obama</h2>
+        <div class="checkbox"></div>
+      </header>
+      <% end %>
+      
+    </section>
+    <section class="six columns mobile-two romney">
+      <%= radio_button_tag 'vote', '3', current_user.vote == 3 %>
+       <%= label_tag 'vote_3', 'Mitt Romney' do %>
+      <header>
+        <img src="<%= asset_path 'romney.jpg' %>" alt="">
+        <h2>Team Romney</h2>
+        <div class="checkbox"></div>
+      </header>
+      <% end %>
+      
+    </section>
+     <% end %>
+  </article>
+  <article id="share" class="row">
+    <header>
+      <h3>Share your vote with your followers:
+        <% if current_user.vote == 2 %>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://example.com/items/1" data-text="I voted for Obama on #TwitterVotes2012. Checkout how your Twitter Universe votes: ">Tweet I voted for Obama</a>
+        <% else %>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twittervotes2012.com" data-text="I voted for Obama on #TwitterVotes2012. Checkout how your Twitter Universe votes: ">Tweet I voted for Romney</a>
+        <% end %>
+      </h3>
+
+      
+    </header>
+  </article>
+
+  <article id="connectionsTable" class='row'>
+    <section class="obama four columns offset-by-one mobile-two">
+      <h4>Your Followers</h4>
+    <% if !current_user.obama_followers.blank? %>
+    <ul>
+      <% for follower in current_user.obama_followers %>
+        <li><%= link_to follower.name, twitter_user_path(follower) %></li>
+      <% end %>
+      </ul>
+    <% else %>
+      Looks like none of your followers have voted for Obama yet. Spread the word: <a href="https://twitter.com/share?text=<%= URI.escape('I just voted for Obama on http://www.google.com #twittervotes2012') %>"  class="twitter-share-button" data-lang="en">Tweet</a>
+    <% end %>
+     <h4>People you follow</h4>
+    <% if !current_user.obama_follows.blank? %>
+    
+    <ul>
+      <% for follower in current_user.obama_follows %>
+        <li><%= link_to follower.name, twitter_user_path(follower) %></li>
+      <% end %>
+      </ul>
+    <% else %>
+      Looks like none of your followers have voted for Obama yet. Spread the word: <a href="https://twitter.com/share?text=<%= URI.escape('I just voted for Obama on http://www.google.com #twittervotes2012') %>"  class="twitter-share-button" data-lang="en">Tweet</a>
+    <% end %>
+    </section>
+    <section class="romney four columns offset-by-two mobile-two">
+      <h4>Your Followers</h4>
+      <% if !current_user.romney_followers.blank? %>
+      
+      <ul>
+        <% for follower in current_user.romney_followers %>
+          <li><%= link_to follower.name, twitter_user_path(follower) %></li>
+        <% end %>
+        </ul>
+      <% else %>
+        Looks like none of your followers have voted for Obama yet. Spread the word: <a href="https://twitter.com/share?text=<%= URI.escape('I just voted for Obama on http://www.google.com #twittervotes2012') %>"  class="twitter-share-button" data-lang="en">Tweet</a>
+      <% end %>
+      <h4>People you follow </h4>
+      <% if !current_user.romney_follows.blank? %>
+      
+      <ul>
+        <% for follower in current_user.romney_follows %>
+          <li><%= link_to follower.name, twitter_user_path(follower) %></li>
+        <% end %>
+        </ul>
+      <% else %>
+        Looks like none of your followers have voted for Obama yet. Spread the word: <a href="https://twitter.com/share?text=<%= URI.escape('I just voted for Obama on http://www.google.com #twittervotes2012') %>"  class="twitter-share-button" data-lang="en">Tweet</a>
+      <% end %>
+    </section>
+    <section class="one column"></section>
+  </article>
+<% else %>
+  <article id="splash">
+    <header>
+      <h2>Twitter Votes 2012</h2>
+      <h5>Sign Up to voice your opinion on who should be the president and see who the people you follow/follow you are voting for.</h5>
+      <a href="/auth/twitter"><img src="https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png" alt=""></a>
+    </header>
+  </article>
+ 
+<% end %>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <script type="text/javascript">
+      $("input[name=vote]").change(function () {
+        $('form').submit();
+      })
+    </script>

@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ 
+ *= require foundation_and_overrides
+ *= require_self
+ *= require_tree .
+*/
+
+body {
+  background: url(<%= asset_path 'usa.jpg' %>) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#container {
+  background-color: rgba(0,0,0,0.85);
+  padding: 40px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+form.hidden{
+  input[type='radio'] {
+     display: none;
+  }
+ 
+}
+
+a {
+  text-decoration: underline;
+
+}
+
+#splash {
+  header {
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 50%,rgba(0,0,0,1) 100%), image-url('vs.jpg') no-repeat center center; /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(0,0,0,1))), image-url('vs.jpg') no-repeat center center; /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 50%,rgba(0,0,0,1) 100%), image-url('vs.jpg') no-repeat center center; /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 50%,rgba(0,0,0,1) 100%), image-url('vs.jpg') no-repeat center center; /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 50%,rgba(0,0,0,1) 100%), image-url('vs.jpg') no-repeat center center; /* IE10+ */
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(0,0,0,0.4) 50%,rgba(0,0,0,1) 100%), image-url('vs.jpg') no-repeat center center; /* W3C */ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 280px;
+    h2  {
+      font-family: "HelveticaNeue-Light";
+      font-weight: 200;
+      font-size: 56px;
+    }
+
+    h5 {
+      line-height: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
+#votingTable {
+  & section > label {
+    position: relative;
+    .checkbox {
+      position: relative;
+      color: white;
+      width: 50px;
+      height: 50px;
+      background-color: #FFF;
+      margin: 0 auto;
+    }
+    text-align: center;
+  }
+  input:checked ~ label {
+    .checkbox:after {
+      content: '✓';
+      color: black;
+      position: absolute;
+      font-size: 40px;
+      line-height: 50px;
+      left: 0px;
+      top: 0px;
+      width: 50px;
+      text-align: center;
+    }
+  }
+  & section > label > header > img {
+    max-height: 200px;
+  }
+  & section > label > header {
+    h2 {
+      font-weight: 200;
+    }
+  }
+  & > form > section > label:hover {
+    &:after {
+      position: absolute;
+      background-color: green;
+      padding: 10px;
+      top: 0px;
+    }
+  }
+  & > form > section.obama > label:hover:after {
+    content: 'Vote for Obama';
+  }
+  & > form > section.romney > label:hover:after {
+    content: 'Vote for Romney';
+  }
+}
