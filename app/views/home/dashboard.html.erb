@@ -77,7 +77,7 @@
       <% else %>
         Looks like none of your followers have voted for Romney yet. Spread the word: <%= raw tweet %>
       <% end %>
-      <h5>People you follow voting for Obama</h5>
+      <h5>People you follow voting for Romney</h5>
       <% if !current_user.romney_follows.blank? %>
       <ul>
         <% for follower in current_user.romney_follows %>
