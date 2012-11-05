@@ -4,4 +4,4 @@ This is a quick Rails Project trying to capture and display how Twitter will vot
 
 We are built on top of neography and neoid gem. Will try to get some cool visualizations graph-wise. You are welcome to fork, contact me at @nambrot to get quick responses.
 
-Visit the site at http://www.twittervotes.com
+Visit the site at http://www.twittervotes2012.com
