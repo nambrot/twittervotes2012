@@ -16,7 +16,7 @@ class HomeController < ApplicationController
   end
 
   def home
-
+    expires_in 4.hours, :public => true
   end
 
   def dashboard
