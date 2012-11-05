@@ -2,7 +2,7 @@
     <header>
       <h2>#TwitterVotes2012</h2>
       <h4>
-        <%= TwitterUser.where(:vote != 1).count %> votes and counting
+        <%= TwitterUser.where(:vote => [2,3]).count %> votes and counting
       </h4>
       <h5>Tweet your support and see who your network is voting for</h5>
       <a href="/auth/twitter"><img src="https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png" alt=""></a>

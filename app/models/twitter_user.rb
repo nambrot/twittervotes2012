@@ -1,6 +1,6 @@
 class TwitterUser < ActiveRecord::Base
   attr_accessible :uid, :vote, :name, :image
-  include Neoid::Node
+  # include Neoid::Node
 
   has_many :followerships
   has_many :followers, :through => :followerships
@@ -20,14 +20,14 @@ class TwitterUser < ActiveRecord::Base
   validates :uid, :presence => true
   validates :image, :presence => true
   
-  neoidable do |c|
-    c.field :uid
-    c.field :vote
-    c.search do |s|
-      s.index :uid
-      s.index :vote
-    end
-  end
+  # neoidable do |c|
+  #   c.field :uid
+  #   c.field :vote
+  #   c.search do |s|
+  #     s.index :uid
+  #     s.index :vote
+  #   end
+  # end
 
   def at_name
     '@' + name
