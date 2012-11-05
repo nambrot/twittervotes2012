@@ -12,19 +12,19 @@ module ApplicationHelper
 
   def neutral_tweet
 <<-eos
-<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://twittervotes2012.com" data-text="Just found #TwitterVotes2012. Check out how your Twitter universe votes: "></a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://www.twittervotes2012.com" data-text="Just found #TwitterVotes2012. Check out how your Twitter universe votes: "></a>
 eos
   end
 
   def obama_tweet
     <<-eos
-    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://twittervotes2012.com" data-text="I voted for Obama on #TwitterVotes2012. Check out how your Twitter universe votes: "></a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://www.twittervotes2012.com" data-text="I voted for Obama on #TwitterVotes2012. Check out how your Twitter universe votes: "></a>
     eos
   end
 
   def romney_tweet
     <<-eos
-    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://twittervotes2012.com" data-text="I voted for Romney on #TwitterVotes2012. Check out how your Twitter universe votes: "></a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-url="http://www.twittervotes2012.com" data-text="I voted for Romney on #TwitterVotes2012. Check out how your Twitter universe votes: "></a>
     eos
   end
 
