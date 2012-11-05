@@ -8,6 +8,12 @@
 </head>
 <body>
 <div id="container" class='row'>
+  <% if flash[:notice] %>
+  <%= content_tag :div, :id => "flash_name", :class => "alert-box success" do %>
+    <%= raw flash[:notice] %>
+    <a class="close">x</a>
+  <% end %>
+<% end %>
   <%= yield %>
 </div>
 

@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     ap current_user.vote
     ap [1,2,3].include? params[:vote].to_i
     ap params[:vote].to_i
-    redirect_to '/vote', :notice => 'Thanks for voting'
+    redirect_to '/vote', :notice => 'Thanks for voting! Tweet your vote: ' + tweet
   end
 
   def home

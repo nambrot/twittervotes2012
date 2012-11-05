@@ -155,7 +155,7 @@ class TwitterAPI
             'uid' => follower['id'],
             'context_name' => 'twitter',
             'credentials' => {},
-            'name' => "@" + follower['screen_name'],
+            'name' => follower['screen_name'],
             'url' => "http://www.twitter.com/#{follower['screen_name']}",
             'image' => self.class.process_image(follower['profile_image_url_https']),
             'objecttype' => 'Twitter Profile',

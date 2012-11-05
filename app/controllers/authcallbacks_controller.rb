@@ -10,9 +10,9 @@ class AuthcallbacksController < ApplicationController
       user = TwitterUser.create(:uid => o['uid'], :name => o['info']['nickname']) if user.nil?
 
       if !is_duplicate?( user.created_at, user.updated_at)
+        user.touch
         user.delay.fetchConnections( o['credentials'])
       end
-
       session[:twitter_user_id] = user.id
       redirect_to '/vote'
     end

@@ -43,7 +43,7 @@
 
   <article id="connectionsTable" class='row'>
     <section class="obama four columns offset-by-one mobile-two">
-      <h4>Your Followers</h4>
+      <h5>Your Followers voting for Obama</h5>
     <% if !current_user.obama_followers.blank? %>
     <ul>
       <% for follower in current_user.obama_followers %>
@@ -53,7 +53,7 @@
     <% else %>
       Looks like none of your followers have voted for Obama yet. Spread the word: <%= raw tweet %>
     <% end %>
-     <h4>People you follow</h4>
+     <h5>People you follow voting for Obama</h5>
     <% if !current_user.obama_follows.blank? %>
     
     <ul>
@@ -66,7 +66,7 @@
     <% end %>
     </section>
     <section class="romney four columns offset-by-two mobile-two">
-      <h4>Your Followers</h4>
+      <h5>Your Followers voting for Romney</h5>
       <% if !current_user.romney_followers.blank? %>
       
       <ul>
@@ -75,9 +75,9 @@
         <% end %>
         </ul>
       <% else %>
-        Looks like none of your followers have voted for Obama yet. Spread the word: <%= raw tweet %>
+        Looks like none of your followers have voted for Romney yet. Spread the word: <%= raw tweet %>
       <% end %>
-      <h4>People you follow </h4>
+      <h5>People you follow voting for Obama</h5>
       <% if !current_user.romney_follows.blank? %>
       <ul>
         <% for follower in current_user.romney_follows %>
@@ -86,7 +86,7 @@
         </ul>
       <% else %>
         <p>
-          Looks like none of your followers have voted for Obama yet. Spread the word: <%= raw tweet %>
+          Looks like none of your followers have voted for Romney yet. Spread the word: <%= raw tweet %>
         </p>
       <% end %>
     </section>
