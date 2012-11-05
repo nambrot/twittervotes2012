@@ -89,7 +89,7 @@ class AuthcallbacksController < ApplicationController
   ## Determines whether the call is a duplicate call within the update window of 24 hours
   def is_duplicate?( created_time, updated_time )
     
-    if ( updated_time-created_time )/(60) > 20
+    if ( updated_time-created_time )/(60) > 600
       logger.debug "Update Window Open, 24 Old"
       false
     elsif ( updated_time- created_time  < 1 )
