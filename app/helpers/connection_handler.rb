@@ -10,9 +10,10 @@ class ConnectionHandler
   # Worker's perform method. Given a the uid and provider
   # the user is found and respective API is called to process there connections
   def self.perform( credentials , uid, provider)
-    puts "Delayed Job Triggered for #{uid}" 
+    
     # Extract the user tp from the uid and provider and pass to the respective api
     user = TwitterUser.find_by_uid(uid)
+    puts "Delayed Job Triggered for #{uid} #{user.name}" 
     TwitterAPI.new( credentials, user ).get_connections ; 
     puts "Delayed Job Completed Task #{uid}"
   end
