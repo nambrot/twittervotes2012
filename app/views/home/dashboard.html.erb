@@ -47,7 +47,7 @@
     <% if !current_user.obama_followers.blank? %>
     <ul>
       <% for follower in current_user.obama_followers %>
-        <li><%= link_to follower.name, "http://www.twitter.com/" + (follower.name) %></li>
+        <li><%= image_tag follower.image %><%= link_to follower.at_name, "http://www.twitter.com/" + (follower.name) %></li>
       <% end %>
       </ul>
     <% else %>
@@ -58,7 +58,7 @@
     
     <ul>
       <% for follower in current_user.obama_follows %>
-        <li><%= link_to follower.name, "http://www.twitter.com/" + (follower.name) %></li>
+        <li><%= image_tag follower.image %><%= link_to follower.at_name, "http://www.twitter.com/" + (follower.name) %></li>
       <% end %>
       </ul>
     <% else %>
@@ -71,7 +71,7 @@
       
       <ul>
         <% for follower in current_user.romney_followers %>
-          <li><%= link_to follower.name, "http://www.twitter.com/" + (follower.name) %></li>
+          <li> <%= image_tag follower.image %><%= link_to follower.at_name, "http://www.twitter.com/" + (follower.name) %></li>
         <% end %>
         </ul>
       <% else %>
@@ -81,7 +81,7 @@
       <% if !current_user.romney_follows.blank? %>
       <ul>
         <% for follower in current_user.romney_follows %>
-          <li><%= link_to follower.name, "http://www.twitter.com/" + (follower.name) %></li>
+          <li><%= image_tag follower.image %><%= link_to follower.at_name, "http://www.twitter.com/" + (follower.name) %></li>
         <% end %>
         </ul>
       <% else %>

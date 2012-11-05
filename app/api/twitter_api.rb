@@ -15,8 +15,8 @@ class TwitterAPI
     @usertp = usertp
     @auth = { :query => {"access_token" => @token }}
     @oauth_config  = {
-        :consumer_key => 'jV8N28AuBGPnpcnUEkfplg',
-        :consumer_secret => 'mcFXhFskgUdS7259hk2fS1VQCg46YIVjftAJs28MuE',
+        :consumer_key => 'wftV4JUJk8RVjEryKa9Hw',
+        :consumer_secret => 'vVQ0WbZKAHIHTQMXIS2agvaI36ccQrPlKNMlcK7uTo',
         :access_token => @token,
         :access_token_secret => @secret
        }
@@ -110,7 +110,7 @@ class TwitterAPI
             'credentials' => {},
             'name' => friend['screen_name'],
             'url' => "http://www.twitter.com/#{friend['screen_name']}",
-            'image' => self.class.process_image( friend['profile_image_url_https'] ) ,
+            'image' => self.class.process_image( friend['profile_image_url'] ) ,
             'objecttype' => 'Twitter Profile',
             'attributes' => {}
           }  ,
@@ -157,7 +157,7 @@ class TwitterAPI
             'credentials' => {},
             'name' => follower['screen_name'],
             'url' => "http://www.twitter.com/#{follower['screen_name']}",
-            'image' => self.class.process_image(follower['profile_image_url_https']),
+            'image' => self.class.process_image(follower['profile_image_url']),
             'objecttype' => 'Twitter Profile',
             'attributes' => {}
           }  ,
@@ -185,25 +185,7 @@ class TwitterAPI
 
   
   def self.process_image( image_url )
-    begin
-    if !image_url.nil?
-      extension = image_url.split('.').last
-      if    image_url.end_with?('_bigger.'+extension)
-        offset = -1*('_bigger.'+extension).length
-        size = '_bigger'.length
-        image_url[offset,size]=""
-      elsif image_url.end_with?('_normal.'+extension)
-        offset = -1*('_normal.'+extension).length
-        size = '_normal'.length
-        image_url[offset,size]=""
-      end
-    end
-    rescue 
-      Rails.logger.fatal "FATAL Image URL Processing Error #{$!}"
-      Rails.logger.fatal "FATAL Image URL Processing Error #{$@}"
-    ensure
-      return image_url
-    end
+    image_url
   end
 
   # Decrements the countdown and turns off the EM Reactor if possible

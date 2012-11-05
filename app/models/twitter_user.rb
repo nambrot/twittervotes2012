@@ -1,5 +1,5 @@
 class TwitterUser < ActiveRecord::Base
-  attr_accessible :uid, :vote, :name
+  attr_accessible :uid, :vote, :name, :image
   include Neoid::Node
 
   has_many :followerships
@@ -18,7 +18,8 @@ class TwitterUser < ActiveRecord::Base
   
   validates :name, :presence => true
   validates :uid, :presence => true
-
+  validates :image, :presence => true
+  
   neoidable do |c|
     c.field :uid
     c.field :vote

@@ -1,5 +1,5 @@
 require 'omniauth-twitter'
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, 'jV8N28AuBGPnpcnUEkfplg', 'mcFXhFskgUdS7259hk2fS1VQCg46YIVjftAJs28MuE'
+  provider :twitter, 'wftV4JUJk8RVjEryKa9Hw', 'vVQ0WbZKAHIHTQMXIS2agvaI36ccQrPlKNMlcK7uTo'
 end

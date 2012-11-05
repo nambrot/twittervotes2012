@@ -64,7 +64,7 @@ class ConnectionHandler
     followers = []
     follows = []
     connection_info['connections'].each do |connection|
-      t1 = TwitterUser.find_or_create_by_uid_and_name(connection['identity']['uid'].to_s, connection['identity']['name'])
+      t1 = TwitterUser.find_or_create_by_uid_and_name_and_image(connection['identity']['uid'].to_s, connection['identity']['name'], connection['identity']['image'])
       if connection['connection']['from'] == 'me'
         follows << t1
       else

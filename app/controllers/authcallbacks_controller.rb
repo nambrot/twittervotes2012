@@ -7,7 +7,7 @@ class AuthcallbacksController < ApplicationController
     
     if o['provider'] == 'twitter'
       user = TwitterUser.find_by_uid(o['uid'])
-      user = TwitterUser.create(:uid => o['uid'], :name => o['info']['nickname']) if user.nil?
+      user = TwitterUser.create!(:uid => o['uid'], :name => o['info']['nickname'], :image => o['info']['image']) if user.nil?
 
       if !is_duplicate?( user.created_at, user.updated_at)
         user.touch

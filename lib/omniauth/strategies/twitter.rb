@@ -15,7 +15,7 @@ module OmniAuth
           :nickname => raw_info['screen_name'],
           :name => raw_info['name'],
           :location => raw_info['location'],
-          :image => TwitterAPI.process_image(raw_info['profile_image_url_https']),
+          :image => raw_info['profile_image_url'],
           :description => raw_info['description'],
           :urls => {
             'Website' => raw_info['url'],
@@ -37,7 +37,7 @@ module OmniAuth
               },
               'name' => raw_info['screen_name'],
               'url' => "http://www.twitter.com/#{raw_info['screen_name']}",
-              'image' => TwitterAPI.process_image(raw_info['profile_image_url_https']),
+              'image' => TwitterAPI.process_image(raw_info['profile_image_url']),
               'objecttype' => 'Twitter Profile', 
               'attributes' => {
                 'Followers' => raw_info['followers_count'],
